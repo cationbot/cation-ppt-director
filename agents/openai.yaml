@@ -1,0 +1,6 @@
+interface:
+  display_name: "Cation PPT Director"
+  short_description: "Cation-style business PPT workflow"
+  default_prompt: "Use $cation-ppt-director to turn my materials into a Cation-style business presentation."
+policy:
+  allow_implicit_invocation: true
