@@ -4,7 +4,7 @@
 
 ## 中文介绍
 
-Cation PPT Director 是一个用于创建和优化商业汇报型 PowerPoint 的 Codex Skill，强调结论先行、管理者可读和业务判断清晰。
+Cation PPT Director 是一个用于创建和优化商业汇报型 PowerPoint 的 Skill，结论先行、管理者可读和业务判断清晰
 
 适用于经营复盘、业务汇报、年度规划、项目复盘、晋升述职，以及从过程稿到提交版的优化。
 
