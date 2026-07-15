@@ -1,51 +1,82 @@
 # Cation PPT Director
 
-[中文介绍](#中文介绍) | [English Introduction](#english-introduction)
+> 把“信息很多，但讲不清楚”的材料，整理成管理者一眼能抓住重点的 PPT。
 
-## 中文介绍
+这是我把自己长期使用的商业汇报方法整理成的一个 Codex Skill。
 
-Cation PPT Director 是一个用于创建和优化商业汇报型 PowerPoint 的 Codex Skill，强调结论先行、管理者可读和业务判断清晰。
+它不只是帮你把文字放进幻灯片，而是先弄清楚：**为什么汇报、讲给谁听、最重要的判断是什么**，再把零散材料组织成结论清楚、逻辑连贯、视觉克制的提交版。
 
-适用于经营复盘、业务汇报、年度规划、项目复盘、晋升述职，以及从过程稿到提交版的优化。
+适合经营复盘、业务汇报、年度规划、项目总结、晋升述职，以及那些“内容基本都有，但离正式提交还差一口气”的 PPT。
 
-### 核心特点
+## ✨ 它会帮你做什么
 
-- 先明确汇报目标、受众、重点与交付形态，再开始完整生成。
-- 用有结论的标题和清晰主线组织内容。
-- 强化数据、行动与业务判断之间的联系。
-- 采用克制、专业的管理汇报视觉风格。
-- 检查网格、字体、图表、表格、结构与整体审美。
-- 明确区分事实、建议和待确认口径，不编造结论。
+- 在完整生成前，先校准汇报目标、受众、重点和交付形态。
+- 从材料中提炼真正值得放进标题的结论，而不是堆满描述。
+- 串起数据、行动和业务判断，让每一页都服务于主线。
+- 控制信息密度和视觉层级，保持专业、克制、管理者可读。
+- 分别检查内容质量和文件质量，避免“技术上没问题，实际上不好讲”。
+- 明确区分已有事实、补充建议和待确认口径，不替你编造结论。
 
-### 隐私说明
+## 它更适合这些场景
 
-公开版不包含原始私人训练 PPT、截图、文件名、公司或员工名称、本地路径及原始业务内容。`references/` 中仅保留脱敏后的选择标准、聚合规律和可复用方法。
+- 手里有 Word、Excel、旧 PPT 或一堆零散材料，不知道如何组织。
+- 过程稿内容很多，但主线不够清楚，标题也没有结论。
+- 想把业务汇报做得更像正式提交版，而不是套模板拼页面。
+- 已经有一份 PPT，希望得到逐页诊断、修改建议或直接优化。
+- 希望保留个人表达和业务判断，而不是生成一份“AI 味”很重的通用稿。
 
-## English Introduction
+## 它不会做什么
 
-Cation PPT Director is a Codex skill for creating and improving conclusion-led, management-readable business presentations.
+- 不会为了显得完整而擅自扩写一整套新交付物。
+- 不会用不存在的数据填满页面。
+- 不会把视觉华丽误认为内容有说服力。
+- 在目标还不清楚时，不会直接投入完整 PPT 制作。
 
-It is designed for operating reviews, business reports, planning decks, project retrospectives, promotion presentations, and draft-to-submit optimization.
+## 🚀 快速开始
 
-## What It Emphasizes
+把仓库克隆到 Codex 的 Skill 目录：
 
-- Result-driven storylines.
-- Conclusion-bearing slide titles.
-- Strong links between data, action, and business judgment.
-- Restrained management-report design.
-- Readable grids, typography, charts, tables, and diagrams.
-- Structural validation and independent aesthetic review.
-- Explicit uncertainty instead of fabricated conclusions.
+```bash
+git clone https://github.com/cationbot/cation-ppt-director.git \
+  ~/.codex/skills/cation-ppt-director
+```
 
-## Privacy
+安装后重新启动 Codex，或新建一个任务，让 Skill 列表重新加载。
 
-This public package does not include the original private training decks, screenshots, filenames, company names, employee names, local paths, or raw business content.
+它支持根据任务语义自动触发，也可以明确调用：
 
-The files under `references/` contain only anonymized selection guidance, aggregate pattern counts, and reusable presentation methods.
+```text
+使用 $cation-ppt-director，把我的材料整理成一份面向管理层的业务汇报 PPT。
+```
 
-The scripts analyze only files explicitly provided by the person running them.
+为了得到更好的结果，建议同时提供：汇报对象、汇报目的、原始材料、期望产物，以及必须沿用的模板或限制。
 
-## Structure
+## 隐私与公开范围
+
+这个仓库是从我的私人版本中生成的公开脱敏版。
+
+它**不包含**原始训练 PPT、截图、真实文件名、公司或员工名称、本地路径及原始业务内容。`references/` 中只保留脱敏后的选择标准、聚合规律和可复用方法；脚本也只会分析使用者明确提供的文件。
+
+## 工具脚本
+
+提取单个 PPTX 或文件夹中的文字：
+
+```bash
+python3 scripts/extract_pptx_text.py "/path/to/deck-or-folder"
+```
+
+根据明确提供的提交版 PPT 生成本地分析报告：
+
+```bash
+python3 scripts/analyze_training_decks.py \
+  --output "/path/to/report.md" \
+  "/path/to/submitted-deck.pptx"
+```
+
+脚本不包含私人默认路径，也不会主动上传文件。
+
+<details>
+<summary>查看仓库结构</summary>
 
 ```text
 cation-ppt-director/
@@ -63,44 +94,15 @@ cation-ppt-director/
     └── extract_pptx_text.py
 ```
 
-## Installation
+</details>
 
-Clone the repository into the Codex skills directory:
+## English
 
-```bash
-git clone https://github.com/cationbot/cation-ppt-director.git \
-  ~/.codex/skills/cation-ppt-director
-```
+Cation PPT Director is a Codex skill for turning scattered business materials into conclusion-led, management-readable presentations.
 
-Restart Codex or start a new task after installation so the skill catalog is refreshed.
+It clarifies the audience, purpose, key judgment, and expected output before building a complete deck. It is designed for operating reviews, business reports, planning decks, project retrospectives, promotion presentations, and draft-to-submit optimization.
 
-## Usage
-
-The skill supports automatic invocation when its description matches the task. It can also be invoked explicitly:
-
-```text
-Use $cation-ppt-director to turn my materials into a Cation-style business presentation.
-```
-
-Before generating a complete deck, provide the intended audience, reporting purpose, source materials, expected output, and any required template when possible.
-
-## Utility Scripts
-
-Extract text from a PPTX file or folder:
-
-```bash
-python3 scripts/extract_pptx_text.py "/path/to/deck-or-folder"
-```
-
-Generate a local training report from explicitly provided submitted decks:
-
-```bash
-python3 scripts/analyze_training_decks.py \
-  --output "/path/to/report.md" \
-  "/path/to/submitted-deck.pptx"
-```
-
-The scripts do not bundle private default paths or upload files.
+The public package contains no original private training decks, screenshots, company information, local paths, or raw business content.
 
 ## License
 
