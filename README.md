@@ -45,7 +45,7 @@ cation-ppt-director/
 Clone the repository into the Codex skills directory:
 
 ```bash
-git clone https://github.com/<your-github-username>/cation-ppt-director.git \
+git clone https://github.com/cationbot/cation-ppt-director.git \
   ~/.codex/skills/cation-ppt-director
 ```
 
